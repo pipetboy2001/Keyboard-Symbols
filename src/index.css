@@ -28,7 +28,8 @@ body {
 
 /* Títulos de categorías */
 .category-title {
-  background-color: #7b2cbf;
+  background-color: #1e88e5;
+  /* Azul bonito para modo claro */
   color: white;
   padding: 10px;
   border-radius: 10px;
@@ -52,7 +53,7 @@ body {
 }
 
 .symbol-button:hover {
-  background-color: #f3c4fb;
+  background-color: #bbdefb;
   transform: scale(1.1);
 }
 
@@ -68,7 +69,8 @@ body {
 }
 
 .dark-mode .category-title {
-  background-color: #a855f7;
+  background-color: #0d47a1;
+  color: white;
 }
 
 .dark-mode .symbol-button {
@@ -97,7 +99,7 @@ body {
 }
 
 .dark-mode .theme-toggle {
-  background: #7b2cbf;
+  background: #0d47a1;
 }
 
 /* 🖥️ Diseño de PC: Mostrar en grid */
@@ -105,7 +107,6 @@ body {
   .category-list {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    /* 3 columnas */
     gap: 20px;
   }
 }
@@ -113,8 +114,7 @@ body {
 /* NavBar */
 .navbar {
   position: relative;
-  background-color: rgba(255, 0, 0, 0.5);
-  /* Rojo con 80% de opacidad */
+  background-color: #b6384e;
   height: 40px;
   width: 100%;
   display: flex;
@@ -126,18 +126,13 @@ body {
 /* Contenedor del logo */
 .header-logo {
   position: absolute;
-  /* se “saca” del flujo normal para que pueda solaparse */
   left: 50%;
-  /* lo llevamos al centro horizontal */
   transform: translateX(-50%);
-  /* centrado horizontal exacto */
   bottom: -30px;
-  /* este valor controla cuánto “baja” el logo sobre la parte rosa */
 }
 
 /* Imagen del logo */
 .header-logo img {
   height: 80px;
-  /* ajusta a tu gusto */
   object-fit: contain;
 }

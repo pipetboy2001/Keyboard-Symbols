@@ -12,7 +12,7 @@ const App: React.FC = () => {
       <HeaderApp />
       <div className={`app-container ${darkMode ? "dark-mode" : ""}`}>
         <button className="theme-toggle" onClick={toggleDarkMode}>
-          {darkMode ? "☀️ Modo Claro" : "🌙 Modo Oscuro"}
+          {darkMode ? "☀️ light mode" : "🌙 Dark mode"}
         </button>
         <h2 className="text-center" style={{ fontFamily: 'Comic Sans MS, cursive, sans-serif', fontSize: '1.25rem' }}>
           Clics on the symbol to copy!
