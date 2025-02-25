@@ -1,14 +1,24 @@
 body {
   background-color: #f8d7da;
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .app-container {
-  max-width: 600px;
+  max-width: 1200px;
+  /* Aumentamos el ancho en PC */
   margin: 0 auto;
   padding: 20px;
 }
 
+/* Contenedor de las categorías */
+.category-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Tarjetas de categorías */
 .category-container {
   background: white;
   border-radius: 15px;
@@ -16,6 +26,7 @@ body {
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Títulos de categorías */
 .category-title {
   background-color: #7b2cbf;
   color: white;
@@ -24,6 +35,7 @@ body {
   display: inline-block;
 }
 
+/* Contenedor de símbolos */
 .symbol-grid {
   display: flex;
   flex-wrap: wrap;
@@ -31,6 +43,7 @@ body {
   gap: 10px;
 }
 
+/* Botones de símbolos */
 .symbol-button {
   padding: 10px;
   font-size: 18px;
@@ -42,18 +55,8 @@ body {
   background-color: #f3c4fb;
   transform: scale(1.1);
 }
-body {
-  background-color: #f8d7da;
-  font-family: "Arial", sans-serif;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
 
-.app-container {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
+/* 🌙 Modo oscuro */
 .dark-mode {
   background-color: #222;
   color: white;
@@ -78,6 +81,7 @@ body {
   background-color: #666;
 }
 
+/* Botón de cambio de tema */
 .theme-toggle {
   position: fixed;
   top: 10px;
@@ -94,4 +98,14 @@ body {
 
 .dark-mode .theme-toggle {
   background: #7b2cbf;
+}
+
+/* 🖥️ Diseño de PC: Mostrar en grid */
+@media (min-width: 768px) {
+  .category-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* 3 columnas */
+    gap: 20px;
+  }
 }
