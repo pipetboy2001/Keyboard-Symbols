@@ -9,7 +9,6 @@ const Category: React.FC<CategoryProps> = ({ title, symbols }) => {
     const copyToClipboard = (symbol: string) => {
         navigator.clipboard.writeText(symbol)
             .then(() => {
-                // Mostrar notificación pequeña
                 const toast = document.createElement('div');
                 toast.classList.add('copy-toast');
                 toast.textContent = 'Copied!';
@@ -25,7 +24,6 @@ const Category: React.FC<CategoryProps> = ({ title, symbols }) => {
     return (
         <div className="category-container">
             <div className="category-header">
-                {/* Implementación exacta del botón tipo píldora */}
                 <div className="pill-button">
                     <div className="pill-outer">
                         <div className="pill-inner">

@@ -21,7 +21,6 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     useEffect(() => {
         localStorage.setItem('darkMode', JSON.stringify(darkMode));
 
-        // Update body class for global styling
         if (darkMode) {
             document.body.classList.add('dark-mode');
         } else {

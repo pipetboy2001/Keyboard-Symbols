@@ -12,7 +12,7 @@ const CategoryList: React.FC = () => {
     const [error] = useState<string | null>(null);
 
     useEffect(() => {
-        fetch("../../public/data/categories.json")
+        fetch("/data/categories.json")
             .then((response) => response.json())
             .then((data) => {
                 setCategories(data);
