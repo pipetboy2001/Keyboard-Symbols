@@ -109,3 +109,35 @@ body {
     gap: 20px;
   }
 }
+
+/* NavBar */
+.navbar {
+  position: relative;
+  background-color: rgba(255, 0, 0, 0.5);
+  /* Rojo con 80% de opacidad */
+  height: 40px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+/* Contenedor del logo */
+.header-logo {
+  position: absolute;
+  /* se “saca” del flujo normal para que pueda solaparse */
+  left: 50%;
+  /* lo llevamos al centro horizontal */
+  transform: translateX(-50%);
+  /* centrado horizontal exacto */
+  bottom: -30px;
+  /* este valor controla cuánto “baja” el logo sobre la parte rosa */
+}
+
+/* Imagen del logo */
+.header-logo img {
+  height: 80px;
+  /* ajusta a tu gusto */
+  object-fit: contain;
+}
