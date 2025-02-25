@@ -1,5 +1,4 @@
-import React from 'react';
-import SymbolButton from './SymbolButton';
+import React from "react";
 
 interface CategoryProps {
     title: string;
@@ -7,12 +6,43 @@ interface CategoryProps {
 }
 
 const Category: React.FC<CategoryProps> = ({ title, symbols }) => {
+    const copyToClipboard = (symbol: string) => {
+        navigator.clipboard.writeText(symbol)
+            .then(() => {
+                // Mostrar notificación pequeña
+                const toast = document.createElement('div');
+                toast.classList.add('copy-toast');
+                toast.textContent = 'Copied!';
+                document.body.appendChild(toast);
+
+                setTimeout(() => {
+                    toast.remove();
+                }, 1500);
+            })
+            .catch(err => console.error('Failed to copy: ', err));
+    };
+
     return (
-        <div className="category-container text-center mb-4">
-            <h2 className="category-title">{title}</h2>
+        <div className="category-container">
+            <div className="category-header">
+                {/* Implementación exacta del botón tipo píldora */}
+                <div className="pill-button">
+                    <div className="pill-outer">
+                        <div className="pill-inner">
+                            <span className="pill-text">{title}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div className="symbol-grid">
                 {symbols.map((symbol, index) => (
-                    <SymbolButton key={index} symbol={symbol} />
+                    <button
+                        key={index}
+                        className="symbol-button"
+                        onClick={() => copyToClipboard(symbol)}
+                    >
+                        {symbol}
+                    </button>
                 ))}
             </div>
         </div>

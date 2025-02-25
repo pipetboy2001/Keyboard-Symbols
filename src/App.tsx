@@ -1,21 +1,29 @@
-import React from "react";
+import { useEffect } from "react";
+import { useTheme } from "./context/ThemeContext";
 import CategoryList from "./components/CategoryList";
 import HeaderApp from "./components/Header";
-import { useTheme } from "./context/ThemeContext";
 
 const App: React.FC = () => {
-  const { darkMode, toggleDarkMode } = useTheme();
+  const { darkMode } = useTheme();
+
+  useEffect(() => {
+    if (darkMode) {
+      document.body.classList.add("dark-mode");
+    } else {
+      document.body.classList.remove("dark-mode");
+    }
+  }, [darkMode]);
 
   return (
     <>
-      {/* Sacamos el Header para que ocupe toda la pantalla */}
       <HeaderApp />
-      <div className={`app-container ${darkMode ? "dark-mode" : ""}`}>
-        <button className="theme-toggle" onClick={toggleDarkMode}>
-          {darkMode ? "☀️ light mode" : "🌙 Dark mode"}
-        </button>
-        <h2 className="text-center" style={{ fontFamily: 'Comic Sans MS, cursive, sans-serif', fontSize: '1.25rem' }}>
-          Clics on the symbol to copy!
+      <div className="app-container">
+        <h2 className="text-center" style={{
+          fontFamily: 'Comic Sans MS, cursive, sans-serif',
+          fontSize: '1.25rem',
+          margin: '20px 0'
+        }}>
+          Click on the symbols to copy!
         </h2>
         <CategoryList />
       </div>

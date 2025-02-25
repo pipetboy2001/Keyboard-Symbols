@@ -8,23 +8,33 @@ interface CategoryType {
 
 const CategoryList: React.FC = () => {
     const [categories, setCategories] = useState<CategoryType[]>([]);
+    const [loading, setLoading] = useState<boolean>(true);
+    const [error] = useState<string | null>(null);
 
     useEffect(() => {
         fetch("../../public/data/categories.json")
             .then((response) => response.json())
-            .then((data) => setCategories(data))
+            .then((data) => {
+                setCategories(data);
+                setLoading(false);
+            })
             .catch((error) => console.error("Error loading categories:", error));
     }, []);
 
+
+    if (loading) {
+        return <div className="loading">Loading categories...</div>;
+    }
+
+    if (error) {
+        return <div className="error">Error: {error}</div>;
+    }
+
     return (
         <div className="category-list">
-            {categories.length > 0 ? (
-                categories.map((category, index) => (
-                    <Category key={index} title={category.title} symbols={category.symbols} />
-                ))
-            ) : (
-                <p>Cargando categorías...</p>
-            )}
+            {categories.map((category, index) => (
+                <Category key={index} title={category.title} symbols={category.symbols} />
+            ))}
         </div>
     );
 };

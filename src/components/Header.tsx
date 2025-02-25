@@ -6,16 +6,23 @@ const HeaderApp: React.FC = () => {
 
     return (
         <header className='navbar' aria-label="Main Header">
-            <div className='header-logo'>
-                <img
-                    src="/logos/logo-transparent.png"
-                    alt="Keyboard Symbols Logo"
-                />
+            <div className='logo-container'>
+                {/* <div className='header-logo'>
+                    <img
+                        src="/logos/logo-transparent.png"
+                        alt="Keyboard Symbols Logo"
+                    />
+                </div> */}
             </div>
 
-            {/* Botón de cambio de tema dentro del Header */}
+            {/* The site name/title could go here */}
+            <div className="site-title">
+                Keyboard Symbols
+            </div>
+
+            {/* Theme toggle button in header */}
             <button className="theme-toggle" onClick={toggleDarkMode}>
-                {darkMode ? "☀️ Light" : "🌙 Dark"}
+                {darkMode ? "☀️" : "🌙"}
             </button>
         </header>
     );
